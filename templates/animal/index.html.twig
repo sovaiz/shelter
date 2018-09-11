@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="container">
+    <h1 class="mx-auto" style="margin: 5px 0 20px 0; text-align: center; font-weight: 100;">
+      Питомцы
+    </h1>
+
+    <p class="mx-auto">Вы можете добавить информацию о питомцах, а после изменить её или удалить.</p>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Вид животного</th>
+        <th scope="col">Кличка</th>
+        <th scope="col">Действия</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for item in data %}
+        <tr>
+          <th scope="row">{{ item.id }}</th>
+          <td>
+            {% if     item.kindName == 0 %}{{ 'Кошки' }}
+            {% elseif item.kindName == 1 %}{{ 'Собаки' }}
+            {% elseif item.kindName == 2 %}{{ 'Черепахи' }}
+            {% endif %}
+          </td>
+          <td>
+            {{ item.sobriquet }}
+          </td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="">
+              <a href="{{ path('animal_edit', {id: item.id}) }}" class="btn">
+                <i class="fas fa-pen-square fa-lg"></i>
+              </a>
+              <a href="{{ path('animal_delete', {id: item.id}) }}" class="btn">
+                <i class="fas fa-trash fa-lg"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="navigation">
+      {{ knp_pagination_render(data) }}
+    </div>
+
+    <a href="{{ path('animal_new') }}" class="btn">
+      <i class="fas fa-plus-circle fa-lg"></i>&nbsp; Добавить животное
+    </a>
+  </div>
+{% endblock body %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}

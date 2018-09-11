@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Shelter Project{% endblock %}</title>
+  {% block stylesheets %}
+    <!-- jQuery UI -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Bootstrap Datepicker -->
+    <link rel="stylesheet" href="{{ asset('css/datepicker.min.css') }}">
+    <style>
+      /* Template styles */
+      :root {
+        --main-bg-color: #ffffff;
+        --grape-color: #2A212B;
+        --grape-color-transparent: rgba(42, 33, 43, 0.7);
+        --light-color: #AA7E7B;
+        --light-color-hover: #986f6d;
+        --dark-color: #2A212B;
+        --light-color-transparent: rgba(170, 126, 123, 0.95);
+
+        --main-background-color: #FFFFFF;
+        --unclean-white-color: #E9DDC7;
+        --light-emerald-color: #90BF49;
+        --light-green-color: #A3D73A;
+        --saturated-green-color: #518916;
+      }
+
+    </style>
+  {% endblock %}
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar sticky-top navbar-expand-lg navbar-white hidden">
+  <a class="navbar-brand" href="#">
+    <img src="http://stores.clothes2order.com/images/uploads/store_layout/store-logo-6102.png"
+         width="30" height="30" alt="">
+    <span style="font-weight: 900;">Shelter</span>
+  </a>
+  <button class="navbar-toggler" type="button"
+          data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <i class="fas fa-bars fa-lg"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% block body %}{% endblock %}
+{% block javascripts %}
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js"></script>
+  <!-- Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+          integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+  <!-- Bootstrap 4 -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
+  <!-- Font Awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+  <!-- Bootstrap Datepicker -->
+  <script src="{{ asset('js/datepicker.min.js') }}"></script>
+  <script src="{{ asset('js/i18n/datepicker.ru-RU.js') }}"></script>
+  <script>
+    $(document).ready(function() {
+      $('[data-toggle="datepicker"]').each(function () {
+        $(this).datepicker({
+          language: 'ru-RU',
+          format: 'yyyy-mm-dd',
+          autoHide: true
+        });
+      });
+    });
+  </script>
+{% endblock %}
+</body>
+</html>

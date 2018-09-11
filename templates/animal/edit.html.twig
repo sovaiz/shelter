@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="container">
+    <h1 class="mx-auto" style="margin: 5px 0 20px 0; text-align: center; font-weight: 100;">
+      Редактирование животного
+    </h1>
+
+    <div class="card col-8 text-white bg-q mx-auto" style="margin-bottom: 20px;">
+      <div class="card-body">
+        {{ form_start(form) }}
+        <div class="form-group">
+          {{ form_row(form.kindName) }}
+        </div>
+        <div class="form-group">
+          {{ form_row(form.sobriquet) }}
+        </div>
+        <div class="form-group">
+          {{ form_row(form.dateOfPlacement) }}
+        </div>
+        <br>
+        <div class="form-group">
+          {{ form_row(form.submit) }}
+        </div>
+        {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}
